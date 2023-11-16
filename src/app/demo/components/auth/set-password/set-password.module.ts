@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginRoutingModule } from './login-routing.module';
-import { LoginComponent } from './login.component';
+import { SetPasswordComponent } from './set-password.component';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SetPasswordRoutingModule } from './set-password-routing.module';
 @NgModule({
     imports: [
         CommonModule,
-        LoginRoutingModule,
+        SetPasswordRoutingModule,
         ButtonModule,
         CheckboxModule,
         InputTextModule,
@@ -19,6 +19,6 @@ import { ReactiveFormsModule } from '@angular/forms';
         PasswordModule ,
         ReactiveFormsModule
     ],
-    declarations: [LoginComponent]
+    declarations: [SetPasswordComponent]
 })
-export class LoginModule { }
+export class SetPasswordModule { }

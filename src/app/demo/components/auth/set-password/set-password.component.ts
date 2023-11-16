@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
+    selector: 'app-set-password',
+    templateUrl: './set-password.component.html',
     styles: [`
         :host ::ng-deep .pi-eye,
         :host ::ng-deep .pi-eye-slash {
@@ -15,7 +15,7 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
         }
     `]
 })
-export class LoginComponent implements OnInit {
+export class SetPasswordComponent implements OnInit {
 
     authForm: UntypedFormGroup;
 
@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
    
     ngOnInit(): void {
         this.authForm = this.formBuilder.group({
-            username: [ "admin@software.com", Validators.required],
             password: [ "admin@123", Validators.required],
+            confirmPassword: [ "admin@123", Validators.required],
           });
     }
 
@@ -38,8 +38,7 @@ export class LoginComponent implements OnInit {
           return;
         } else {
     
-          localStorage.setItem('token','Admin')
-          this.router.navigate(["/"]);
+          this.router.navigate(['auth/login'])
         
         }
       }
