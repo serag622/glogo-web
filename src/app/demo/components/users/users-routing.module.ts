@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: '', loadChildren: () => import('./crud/crud.module').then(m => m.CrudModule) },
+        { path: 'all-users', loadChildren: () => import('./crud/crud.module').then(m => m.CrudModule) },
     ])],
     exports: [RouterModule]
 })

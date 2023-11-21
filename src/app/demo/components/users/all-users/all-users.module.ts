@@ -16,7 +16,6 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
-import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 @NgModule({
     imports: [
@@ -35,8 +34,7 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
         DropdownModule,
         RadioButtonModule,
         InputNumberModule,
-        DialogModule,
-        BreadcrumbModule
+        DialogModule
     ],
     declarations: [CrudComponent]
 })
