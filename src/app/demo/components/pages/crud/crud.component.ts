@@ -30,24 +30,23 @@ export class CrudComponent implements OnInit {
 
     rowsPerPageOptions = [5, 10, 20];
 
+    isToggled : boolean = false
+
     constructor(private productService: ProductService, private messageService: MessageService) { }
 
     ngOnInit() {
-        this.productService.getProducts().then(data => this.products = data);
+        this.productService.getProducts().then(data => this.products = []);
 
         this.cols = [
-            { field: 'product', header: 'Product' },
-            { field: 'price', header: 'Price' },
-            { field: 'category', header: 'Category' },
-            { field: 'rating', header: 'Reviews' },
-            { field: 'inventoryStatus', header: 'Status' }
+            { field: '', header: '' },
+            { field: 'product', header: 'User Name' },
+            { field: 'price', header: 'Email' },
+            { field: 'category', header: 'Phone' },
+            { field: 'rating', header: 'Role' },
+            { field: 'inventoryStatus', header: 'Status' },
+            { field: '', header: '' },
         ];
 
-        this.statuses = [
-            { label: 'INSTOCK', value: 'instock' },
-            { label: 'LOWSTOCK', value: 'lowstock' },
-            { label: 'OUTOFSTOCK', value: 'outofstock' }
-        ];
     }
 
     openNew() {

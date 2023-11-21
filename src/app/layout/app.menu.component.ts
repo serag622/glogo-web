@@ -15,19 +15,78 @@ export class AppMenuComponent implements OnInit {
     ngOnInit() {
         this.model = [
             {
-                label: 'Home',
                 items: [
                     { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }
                 ]
             },
             {
-                label: 'Pages',
+                label: '',
                 icon: 'pi pi-fw pi-briefcase',
                 items: [
                     {
-                        label: 'Crud',
-                        icon: 'pi pi-fw pi-pencil',
-                        routerLink: ['/pages/crud']
+                        label: 'User Management',
+                        icon: 'pi pi-fw pi-users',
+                        routerLink: ['/users/all-users']
+                    },
+                    
+                ]
+            },
+            {
+                label: '',
+                icon: '',
+                items: [
+                    {
+                        label: 'Drivers',
+                        icon: 'pi pi-fw pi-car',
+                        routerLink: ['']
+                    },
+                    
+                ]
+            },
+            {
+                label: '',
+                icon: '',
+                items: [
+                    {
+                        label: 'Trips',
+                        icon: 'pi pi-fw pi-briefcase',
+                        routerLink: ['']
+                    },
+                    
+                ]
+            },
+            {
+                label: '',
+                icon: '',
+                items: [
+                    {
+                        label: 'Reviews & Rates',
+                        icon: 'pi pi-fw pi-star',
+                        routerLink: ['']
+                    },
+                    
+                ]
+            },
+            {
+                label: '',
+                icon: '',
+                items: [
+                    {
+                        label: 'Payment',
+                        icon: 'pi pi-fw pi-dollar',
+                        routerLink: ['']
+                    },
+                    
+                ]
+            },
+            {
+                label: '',
+                icon: '',
+                items: [
+                    {
+                        label: 'App Setting',
+                        icon: 'pi pi-fw pi-mobile',
+                        routerLink: ['']
                     },
                     
                 ]
