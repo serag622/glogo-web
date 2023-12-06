@@ -52,7 +52,7 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Trips',
                         icon: 'pi pi-fw pi-briefcase',
-                        routerLink: ['']
+                        routerLink: ['/trips/all-Trips']
                     },
                     
                 ]

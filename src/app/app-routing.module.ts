@@ -11,8 +11,11 @@ import { AuthGuard } from './core/guard/auth.guard';
                 canActivate: [AuthGuard],
                 children: [
                     { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
+                    { path : 'home' , redirectTo : ''} ,
                     { path: 'admin', loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) } ,
-                    { path: 'users', loadChildren: () => import('./demo/components/users/users.module').then(m => m.UsersModule) }
+                    { path: 'users', loadChildren: () => import('./demo/components/users/users.module').then(m => m.UsersModule) } ,
+                    { path: 'trips', loadChildren: () => import('./demo/components/trips/trip.module').then(m => m.TripsModule) }
+
                 ]
             },
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
