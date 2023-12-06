@@ -25,10 +25,9 @@ export class AppMenuComponent implements OnInit {
                 items: [
                     {
                         label: 'Admin Management',
-                        icon: 'pi pi-fw pi-users',
+                        icon: 'pi pi-fw pi-shield',
                         routerLink: ['/admin']
-                    },
-                    
+                    },      
                 ]
             },
             {
@@ -39,8 +38,8 @@ export class AppMenuComponent implements OnInit {
                         label: 'User Management',
                         icon: 'pi pi-fw pi-users',
                         items :[
-                            {label : 'Users' , routerLink : ['']} , 
-                            {label : 'Exclusive Requests' , routerLink : ['']}
+                            {label : 'Users' , routerLink : ['/users/all-users']} , 
+                            {label : 'Exclusive Requests' ,  routerLink : ['/users/user-request']}
                         ]
                     },
                     

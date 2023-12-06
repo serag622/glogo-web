@@ -37,18 +37,18 @@
             </div>
         </div>
 
-            <p-table #dt [value]="products" [columns]="cols" [scrollable]="true" scrollHeight="67vh" responsiveLayout="scroll" [rows]="10"  [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} users" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">
+            <p-table #dt [value]="products" [columns]="['', '' , '' , '' ,'' , '' ,'']" [scrollable]="true" scrollHeight="67vh" responsiveLayout="scroll" [rows]="10"  [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} users" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">
               
                 <ng-template pTemplate="header">
                     <tr>
                         <th style="width: 3rem">
                             <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                         </th>
-                        <th >User Name </th>
-                        <th> Email</th>
-                        <th >Phone </th>
-                        <th >Role </th>
-                        <th >Status </th>
+                        <th > </th>
+                        <th> </th>
+                        <th > </th>
+                        <th > </th>
+                        <th > </th>
                         <th></th>
                     </tr>
                 </ng-template>

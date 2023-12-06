@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CrudRoutingModule } from './crud-routing.module';
-import { CrudComponent } from './crud.component';
+import { AllUsersRoutingModule } from './all-users-routing.module';
 import { TableModule } from 'primeng/table';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ButtonModule } from 'primeng/button';
@@ -16,11 +15,12 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
+import { AllUsersComponent } from './all-users.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        CrudRoutingModule,
+        AllUsersRoutingModule,
         TableModule,
         FileUploadModule,
         FormsModule,
@@ -36,6 +36,6 @@ import { DialogModule } from 'primeng/dialog';
         InputNumberModule,
         DialogModule
     ],
-    declarations: [CrudComponent]
+    declarations: [AllUsersComponent]
 })
-export class CrudModule { }
+export class AllUsersModule { }
