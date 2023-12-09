@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AllUsersRoutingModule } from './all-users-routing.module';
 import { TableModule } from 'primeng/table';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ButtonModule } from 'primeng/button';
@@ -15,12 +14,13 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
-import { AllUsersComponent } from './all-users.component';
+import { PromoCodeRoutingModule } from './promo-code-routing.module';
+import { PromoCodeComponent } from './promo-code.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        AllUsersRoutingModule,
+        PromoCodeRoutingModule,
         TableModule,
         FileUploadModule,
         FormsModule,
@@ -36,6 +36,6 @@ import { AllUsersComponent } from './all-users.component';
         InputNumberModule,
         DialogModule
     ],
-    declarations: [AllUsersComponent]
+    declarations: [PromoCodeComponent]
 })
-export class AllUsersModule { }
+export class PromoCodeModule { }

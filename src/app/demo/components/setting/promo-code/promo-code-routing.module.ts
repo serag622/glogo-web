@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AllUsersComponent } from './all-users.component';
+import { PromoCodeComponent } from './promo-code.component';
 
 @NgModule({
 	imports: [RouterModule.forChild([
-		{ path: '', component: AllUsersComponent }
+		{ path: '', component: PromoCodeComponent }
 	])],
 	exports: [RouterModule]
 })
-export class AllUsersRoutingModule { }
+export class PromoCodeRoutingModule { }

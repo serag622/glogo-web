@@ -3,10 +3,10 @@ import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
 @Component({
-    templateUrl: './all-users.component.html',
+    templateUrl: './Promo-code.component.html',
     providers: [MessageService]
 })
-export class AllUsersComponent implements OnInit {
+export class PromoCodeComponent implements OnInit {
 
     productDialog: boolean = false;
 

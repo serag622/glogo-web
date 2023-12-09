@@ -41,7 +41,7 @@ export class CrudComponent implements OnInit {
             { field: 'category', header: 'Phone' },
             { field: 'rating', header: 'Role' },
             { field: 'inventoryStatus', header: 'Status' },
-            { field: '', header: '' },
+            { field: 'actions', header: 'Actions' },
         ];
 
     }

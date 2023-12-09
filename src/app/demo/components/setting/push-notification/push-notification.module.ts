@@ -14,13 +14,13 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
-import { UserRequestComponent } from './user-request.component';
-import { UserRequestRoutingModule } from './user-request-routing.module';
+import { PushNotificationRoutingModule } from './push-notification-routing.module';
+import { PushNOtificationComponent } from './push-notification.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        UserRequestRoutingModule,
+        PushNotificationRoutingModule,
         TableModule,
         FileUploadModule,
         FormsModule,
@@ -36,6 +36,6 @@ import { UserRequestRoutingModule } from './user-request-routing.module';
         InputNumberModule,
         DialogModule
     ],
-    declarations: [UserRequestComponent]
+    declarations: [PushNOtificationComponent]
 })
-export class UserRequestModule { }
+export class PushNotificationModule { }

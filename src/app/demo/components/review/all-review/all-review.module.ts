@@ -14,13 +14,13 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
-import { UserRequestComponent } from './user-request.component';
-import { UserRequestRoutingModule } from './user-request-routing.module';
+import { AllReviewComponent } from './all-review.component';
+import { AllReviewRoutingModule } from './all-review-routing.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        UserRequestRoutingModule,
+        AllReviewRoutingModule,
         TableModule,
         FileUploadModule,
         FormsModule,
@@ -36,6 +36,6 @@ import { UserRequestRoutingModule } from './user-request-routing.module';
         InputNumberModule,
         DialogModule
     ],
-    declarations: [UserRequestComponent]
+    declarations: [AllReviewComponent]
 })
-export class UserRequestModule { }
+export class AllReviewModule { }

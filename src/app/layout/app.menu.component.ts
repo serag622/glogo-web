@@ -64,9 +64,8 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Reviews & Rates',
                         icon: 'pi pi-fw pi-star',
-                        routerLink: ['']
+                        routerLink: ['/review/all-reviews']
                     },
-                    
                 ]
             },
             {
@@ -76,7 +75,7 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Payment',
                         icon: 'pi pi-fw pi-dollar',
-                        routerLink: ['']
+                        routerLink: ['/payment/all-payment']
                     },
                     
                 ]
@@ -88,7 +87,10 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'App Setting',
                         icon: 'pi pi-fw pi-mobile',
-                        routerLink: ['']
+                        items :[
+                            {label : 'Promo Code' , routerLink : ['/setting/promo-code']} , 
+                            {label : 'App Notificatins' ,  routerLink : ['/setting/push-notification']}
+                        ]
                     },
                     
                 ]

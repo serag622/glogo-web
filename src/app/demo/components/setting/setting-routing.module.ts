@@ -3,9 +3,9 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: 'all-users', loadChildren: () => import('./all-users/all-users.module').then(m => m.AllUsersModule) },
-        { path: 'user-request', loadChildren: () => import('./user-request/user-request.module').then(m => m.UserRequestModule) }
+        { path: 'promo-code', loadChildren: () => import('./promo-code/promo-code.module').then(m => m.PromoCodeModule) },
+        { path: 'push-notification', loadChildren: () => import('./push-notification/push-notification.module').then(m => m.PushNotificationModule) }
     ])],
     exports: [RouterModule]
 })
-export class UsersRoutingModule { }
+export class SettingRoutingModule { }

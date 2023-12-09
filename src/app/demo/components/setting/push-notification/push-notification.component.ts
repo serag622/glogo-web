@@ -3,10 +3,10 @@ import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
 @Component({
-    templateUrl: './user-request.component.html',
+    templateUrl: './push-notification.component.html',
     providers: [MessageService]
 })
-export class UserRequestComponent implements OnInit {
+export class PushNOtificationComponent implements OnInit {
 
     productDialog: boolean = false;
 
