@@ -5,57 +5,62 @@
             <p-toolbar styleClass="mb-4">
                 <ng-template pTemplate="left">
                     <div class="my-2">
-                        <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger mx-2" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button>
-                        <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help" (click)="dt.exportCSV()"></button>
+                        <button pButton pRipple label="Filter" icon="pi pi-filter" class="mx-1"
+                            (click)="isToggled = !isToggled"></button>
+                        <!-- <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger mx-2" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button> -->
+                        <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"
+                            (click)="dt.exportCSV()"></button>
                     </div>
                 </ng-template>
 
                 <ng-template pTemplate="right">
-                    <button pButton pRipple label="Filter" icon="pi pi-filter" class="" (click)="isToggled = !isToggled" ></button>
                 </ng-template>
-
-             
 
             </p-toolbar>
 
-            <div
-            [ngStyle]="{'max-height': (isToggled) ? '400px' : '0px' , 'overflow': (isToggled) ? 'hidden' : 'hidden' } "
-            style="transition: all .9s ease-in-out; overflow: hidden;padding: 0px;">
+            <div [ngStyle]="{'max-height': (isToggled) ? '400px' : '0px' , 'overflow': (isToggled) ? 'hidden' : 'hidden' } "
+                style="transition: all .9s ease-in-out; overflow: hidden;padding: 0px;">
 
-            <div class="grid ">
+                <div class="grid ">
 
-                <div class="col-4">
-                    
+                    <div class="col-4">
+
+                    </div>
+
+                    <div class="col flex flex-row h-50 justify-content-end mt-2">
+                        <button mat-raised-button color="primary" class="btn-geo"></button>
+                        <button mat-raised-button class="mx-1 btn-reset" color="warn"></button>
+                    </div>
+
                 </div>
-
-              <div class="col flex flex-row h-50 justify-content-end mt-2">
-                <button mat-raised-button color="primary" class="btn-geo"></button>
-                <button mat-raised-button class="mx-1 btn-reset" color="warn"></button>
-              </div>
-
             </div>
-        </div>
 
-            <p-table #dt [value]="products" [columns]="['', '' , '' , '' , '' ,'']" [scrollable]="true" scrollHeight="67vh" responsiveLayout="scroll" [rows]="10"  [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} users" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">
-              
+            <p-table #dt [value]="AllUsers" [columns]="cols" [scrollable]="true" scrollHeight="67vh"
+                responsiveLayout="scroll" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]"
+                [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} users"
+                [(selection)]="selectedUsers" selectionMode="multiple" [rowHover]="true" dataKey="id">
+
                 <ng-template pTemplate="header">
                     <tr>
-                        <th style="width: 3rem">
+                        <!-- <th style="width: 3rem">
                             <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                        </th>
-                        <th > </th>
-                        <th> </th>
-                        <th > </th>
-                        <th > </th>
-                        <th > </th>
-                        <th></th>
+                        </th> -->
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>phone</th>
+                        <th>Email</th>
+                        <th>Gendar</th>
+                        <th>Role</th> ,
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-product>
                     <tr>
-                        <td>
+                        <!-- <td>
                             <p-tableCheckbox [value]="product"></p-tableCheckbox>
-                        </td>
+                        </td> -->
                         <td style="width:14%; min-width:10rem;"><span class="p-column-title">Code</span>
                             {{product.code || product.id}}
                         </td>
@@ -64,7 +69,8 @@
                             {{product.name}}
                         </td>
                         <td style="width:14%; min-width:10rem;"><span class="p-column-title">Image</span>
-                            <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" />
+                            <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.name" width="100"
+                                class="shadow-4" />
                         </td>
                         <td style="width:14%; min-width:8rem;">
                             <span class="p-column-title">Price</span>
@@ -78,48 +84,43 @@
                             <p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating>
                         </td>
                         <td style="width:14%; min-width: 10rem;"><span class="p-column-title">Status</span>
-                            <span [class]="'product-badge status-' + (product.inventoryStatus ? product.inventoryStatus.toLowerCase() : '')">{{product.inventoryStatus}}</span>
+                            <span
+                                [class]="'product-badge status-' + (product.inventoryStatus ? product.inventoryStatus.toLowerCase() : '')">{{product.inventoryStatus}}</span>
                         </td>
                         <td>
                             <div class="flex">
-                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>
+                                <button pButton pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success mr-2"
+                                    (click)="editProduct(product)"></button>
                             </div>
                         </td>
                     </tr>
                 </ng-template>
 
                 <ng-template pTemplate="emptymessage" let-columns>
-                    <tr >
-                      <td [attr.colspan]="columns.length" class="text-center" rowspan="5">
-                         No records found
-                      </td>
+                    <tr>
+                        <td [attr.colspan]="columns.length" class="text-center" rowspan="5">
+                            No records found
+                        </td>
                     </tr>
-                  </ng-template>
+                </ng-template>
 
             </p-table>
         </div>
 
 
-        <p-dialog [(visible)]="deleteProductDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+        <p-dialog [(visible)]="deleteUserDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
             <div class="flex align-items-center justify-content-center">
                 <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
-                <span *ngIf="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
+                <span *ngIf="User">Are you sure you want to delete <b>{{User.name}}</b>?</span>
             </div>
             <ng-template pTemplate="footer">
-                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteProductDialog = false"></button>
-                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDelete()"></button>
+                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No"
+                    (click)="deleteUserDialog = false"></button>
+                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes"
+                    (click)="confirmDelete()"></button>
             </ng-template>
         </p-dialog>
 
-        <p-dialog [(visible)]="deleteProductsDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
-            <div class="flex align-items-center justify-content-center">
-                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
-                <span>Are you sure you want to delete selected products?</span>
-            </div>
-            <ng-template pTemplate="footer">
-                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteProductsDialog = false"></button>
-                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDeleteSelected()"></button>
-            </ng-template>
-        </p-dialog>
     </div>
 </div>
