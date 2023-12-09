@@ -9,57 +9,83 @@ import { Subject, takeUntil } from "rxjs";
     templateUrl: './all-users.component.html',
     providers: [MessageService]
 })
-export class AllUsersComponent implements OnInit , OnDestroy {
+export class AllUsersComponent implements OnInit, OnDestroy {
 
     deleteUserDialog: boolean = false;
 
     AllUsers: User[] = [];
 
-    User !: User ;
+    User !: User | null
 
     selectedUsers: any[] = [];
 
 
     cols: string[] = [
         '#',
-        'image',
         'name',
-        'phone' ,
+        'phone',
         'email',
         'gendar',
-        'role' ,
+        'role',
         'status',
         'action'
     ];
 
- 
-    rowsPerPageOptions = [5, 10, 20 , 50];
 
-    isToggled : boolean = false;
+    rowsPerPageOptions = [10, 20, 50];
 
-    page : number = 0;
-    size : number = 20;
+    isToggled: boolean = false;
+
+    page: number = 0;
+    size: number = 20;
+    totalElements: number = 0
     $subject = new Subject;
 
 
-    constructor( private messageService: MessageService , private userService : UserService) { }
+    constructor(private messageService: MessageService, private userService: UserService) { }
 
     ngOnInit() {
-      this.getAllUsers()
+        this.getAllUsers()
     }
 
-    
-  ngOnDestroy(): void {
-    this.$subject.next(1);
-    this.$subject.complete();
-  }
 
-    getAllUsers(){
-     this.userService.getAllUser(this.page , this.size).pipe(takeUntil(this.$subject.asObservable())).subscribe((res :  any)=>{
-    console.log(res)
-     },(error)=>{
-        console.log(error)
-     })
+    ngOnDestroy(): void {
+        this.$subject.next(1);
+        this.$subject.complete();
     }
-  
+
+    getAllUsers() {
+        this.userService.getAllUser(this.page, this.size).pipe(takeUntil(this.$subject.asObservable())).subscribe((res: any) => {
+            this.AllUsers = res?.content?.data
+            this.totalElements = res.totalElements
+        }, (error) => {
+            console.log(error)
+        })
+    }
+
+    onPageChange($event) {
+        this.page = $event?.page;
+        this.size = $event?.rows;
+        this.getAllUsers()
+    }
+
+    deleteUser(user) {
+        this.deleteUserDialog = true;
+        this.User = { ...user };
+    }
+
+    confirmDelete() {
+
+       this.userService.deleteUser(this.User.id).pipe(takeUntil(this.$subject.asObservable())).subscribe((res : any)=>{
+        this.deleteUserDialog = false;
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
+        this.User = null;
+        this.getAllUsers()
+       },(error)=>{
+        this.deleteUserDialog = false;
+       })
+        
+    }
+
+
 }

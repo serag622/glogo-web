@@ -19,4 +19,8 @@ export class UserService {
     }
 
 
+    deleteUser(id : string){
+        return this.http.delete(`http://144.91.116.177:8804/user/api/v1/${id}`)
+    }
+
 }

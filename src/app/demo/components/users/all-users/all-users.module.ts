@@ -16,7 +16,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
 import { AllUsersComponent } from './all-users.component';
-
+import { PaginatorModule } from 'primeng/paginator';
 @NgModule({
     imports: [
         CommonModule,
@@ -34,7 +34,8 @@ import { AllUsersComponent } from './all-users.component';
         DropdownModule,
         RadioButtonModule,
         InputNumberModule,
-        DialogModule
+        DialogModule ,
+        PaginatorModule
     ],
     declarations: [AllUsersComponent]
 })
