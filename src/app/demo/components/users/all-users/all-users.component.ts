@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { User } from 'src/app/demo/api/user';
+import { User, UserFilters } from 'src/app/demo/api/user';
 import { UserService } from 'src/app/demo/service/user.service';
 import { Subject, takeUntil } from "rxjs";
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
     templateUrl: './all-users.component.html',
@@ -18,7 +19,8 @@ export class AllUsersComponent implements OnInit, OnDestroy {
     User !: User | null
 
     selectedUsers: any[] = [];
-
+ 
+    userFilters : UserFilters = {phoneNumber : null , role : null , email : null , gender : null}
 
     cols: string[] = [
         '#',
@@ -42,7 +44,7 @@ export class AllUsersComponent implements OnInit, OnDestroy {
     $subject = new Subject;
 
 
-    constructor(private messageService: MessageService, private userService: UserService) { }
+    constructor(private messageService: MessageService, private userService: UserService , private ngxService: NgxUiLoaderService,) { }
 
     ngOnInit() {
         this.getAllUsers()
@@ -55,10 +57,13 @@ export class AllUsersComponent implements OnInit, OnDestroy {
     }
 
     getAllUsers() {
-        this.userService.getAllUser(this.page, this.size).pipe(takeUntil(this.$subject.asObservable())).subscribe((res: any) => {
+        this.ngxService.start()
+        this.userService.getAllUser(this.page, this.size , this.userFilters).pipe(takeUntil(this.$subject.asObservable())).subscribe((res: any) => {
             this.AllUsers = res?.content?.data
             this.totalElements = res.totalElements
+            this.ngxService.stop()
         }, (error) => {
+            this.ngxService.stop()
             console.log(error)
         })
     }

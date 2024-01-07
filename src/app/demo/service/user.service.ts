@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { UserFilters } from '../api/user';
 
 @Injectable(
     {
@@ -13,11 +14,11 @@ export class UserService {
 
     baseUrl = environment.baseUrl
 
-    getAllUser(page, size) {
+    getAllUser(page, size , filter : UserFilters) {
         let params: HttpParams = new HttpParams()
             .append('page', page)
             .append('size', size)
-        return this.http.get(`${this.baseUrl}/user/api/v1/paginated`, { params })
+        return this.http.post(`${this.baseUrl}/user/api/v1/filter`, {} ,{ params })
     }
 
 

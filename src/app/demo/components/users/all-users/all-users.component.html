@@ -56,7 +56,8 @@
                             {{(page )*size+(rowIndex+1)}}
                         </td>
                         <td>
-                            <img [src]="user?.profileImage" [alt]="user.firstName" width="100" class="shadow-4 rounded-circle" />
+                            <img *ngIf="user?.profileImage" [src]="user?.profileImage" [alt]="user.firstName" width="50" height="50" class="shadow-4 rounded-circle" />
+                            <span *ngIf="!user?.profileImage">N/A</span>
                         </td>
                         <td style="width:14%; min-width:10rem;">
                             {{user.firstName + ' ' + (user?.lastName ? user?.lastName : '')}}
@@ -120,3 +121,5 @@
 
     </div>
 </div>
+
+<app-loader></app-loader>

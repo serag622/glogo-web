@@ -17,6 +17,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
 import { AllUsersComponent } from './all-users.component';
 import { PaginatorModule } from 'primeng/paginator';
+import { AppLoaderComponent } from '../../SharedComp/app-loader/app-loader.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -35,7 +36,8 @@ import { PaginatorModule } from 'primeng/paginator';
         RadioButtonModule,
         InputNumberModule,
         DialogModule ,
-        PaginatorModule
+        PaginatorModule ,
+        AppLoaderComponent
     ],
     declarations: [AllUsersComponent]
 })

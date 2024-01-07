@@ -15,3 +15,10 @@ export interface User {
     roleList: string[]
     completedRegistrationSteps: number[]
   }
+
+  export interface UserFilters {
+    phoneNumber: string
+    email: string
+    gender: string
+    role: string
+  }
