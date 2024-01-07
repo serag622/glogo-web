@@ -11,7 +11,7 @@
                 <form [formGroup]="authForm" >
 
                     <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label>
-                    <input id="email1" formControlName="username" type="email" placeholder="Email address" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem">
+                    <input id="email1" formControlName="userName" type="email" placeholder="Email address" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem">
 
                     <label for="password1" class="block text-900 font-medium text-xl mb-2">Password</label>
                     <p-password id="password1" formControlName="password"  placeholder="Password" [toggleMask]="true" styleClass="mb-5" inputStyleClass="w-full p-3 md:w-30rem"></p-password>
@@ -24,7 +24,12 @@
                         <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)" routerLink="/auth/forget-password" >Forgot password?</a>
                     </div>
 
-                    <button pButton pRipple label="Sign In" class="w-full p-3 text-xl" (click)="onSubmit()" style="background-color: #D94838;"></button>
+                    <button pButton pRipple  iconPos="right" class="w-full p-3 justify-content-center text-xl" (click)="onSubmit()" style="background-color: #D94838;">
+                        <span>Login</span> 
+                        <i *ngIf="isSubmit" class="pi pi-spin pi-spinner ml-3" style="font-size: 2rem"></i>
+                        <i *ngIf="isLoged" class="pi pi-check ml-3" style="color: green"></i>
+
+                    </button>
 
                 </form>
 
